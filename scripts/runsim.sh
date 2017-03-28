@@ -1,4 +1,4 @@
-### Example bash script to run
+### Example bash script to run, syntax is specific to the Hyak supercomputer at the University of Washington
 
 #!/bin/bash
 
