@@ -5,8 +5,7 @@ This repository contains the source code to reproduce the analysis described in 
 This model is written and runs in the R programming language.  To utilize the model, it is first necessary to install [EpiModel](http://www.epimodel.org), the epidemic modeling software, and [EpiModelHIV](https://github.com/statnet/EpiModelHIV), the extension package for modeling the HIV transmission dynamics among MSM examined here.     
 
 Within R:     
-`install.packages("EpiModel")`     
-     
+`install.packages("EpiModel")`      
 `# install devtools if necessary, install.packages("devtools")`     
 `devtools::install_github("statnet/EpiModelHIV", ref = "MSM-race-disparities")`     
 
