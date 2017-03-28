@@ -1,6 +1,6 @@
 ## Isolating the sources of racial disparities in HIV prevalence among men who have sex with men (MSM) in Atlanta, GA: A modeling study
 
-This repository contains the source code to reproduce the analysis described in our HIV transmission model described below.  In this model, we examine factors that contribute to the much higher HIV prevalence in Black MSM in Atlanta, GA.  
+This repository contains the source code to reproduce the analysis described in our HIV transmission model.  In this model, we examine factors that contribute to the much higher HIV prevalence in Black MSM in Atlanta, GA.  
 
 This model is written and runs in the R programming language.  To utilize the model, it is first necessary to install EpiModel:
 
