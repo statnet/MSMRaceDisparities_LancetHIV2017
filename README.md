@@ -17,5 +17,6 @@ A dynamic, stochastic agent-based network model of BMSM and WMSM ages 18-39 in A
 Race-assortative mixing alone could not sustain a pre-existing disparity. Differences in care cascade, stigma-related behaviors, and CCR5 genotypes each contributed considerably to the disparity, but nearly half (45%) of the disparity remained unexplained. A scenario evaluating race-specific reporting differences was the only one to yield Black HIV prevalence similar to that observed.
 ### Interpretation. 
 Racial assortativity is an inadequate explanation for observed disparities. Work to close the gap in the care cascade by race is imperative, as are efforts to increase serodiscussion and strengthen relationships among Black MSM especially. Further work is urgently needed to identify other sources and pathways of this disparity, integrate concomitant STI epidemics into models, and understand reasons for racial differences in behavioral reporting.
-###Funding
+
+### Funding
 NIH R21HD075662;RC1MD004370;R01MH085600;R01HD067111;R01AI083060; R01HD068395;P30AI027757;P30AI050409;R24HD042828.
