@@ -7,7 +7,7 @@ This model is written in the R programming language.  To utilize it, it is first
 [epimodel instricutions]
 
 ## Citation
-Goodreau SM, Rosenberg ES, Jenness SM, Luisi N, Stansfield SE, Millett GA, Sullivan PS. (Accepted). Isolating the sources of racial disparities in HIV prevalence among men who have sex with men (MSM) in Atlanta, GA: A modeling study. Lancet HIV.
+> Goodreau SM, Rosenberg ES, Jenness SM, Luisi N, Stansfield SE, Millett GA, Sullivan PS. (Accepted). Isolating the sources of racial disparities in HIV prevalence among men who have sex with men (MSM) in Atlanta, GA: A modeling study. Lancet HIV.
 
 ## Abstract
 ### Background
