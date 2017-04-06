@@ -7,7 +7,7 @@ library("Mardham")
 
 ## Parameters
 
-fsimno <- 1013.1
+fsimno <- 1014.1
 load("nwstats.rda")
 
 nodemix.m <- c(st$stats.m[1] - st$stats.m[2] - st$stats.m[3],
@@ -39,12 +39,12 @@ param <- param.mard(nwstats = st,
 					tx.reinit.B.prob = (0.00066 + 0.00291)/2,
 					tx.reinit.W.prob = (0.00066 + 0.00291)/2,
 					
-					disc.outset.main.B.prob = 0.685,
-					disc.outset.main.W.prob = 0.889,
-					disc.outset.pers.B.prob = 0.527,
-					disc.outset.pers.W.prob = 0.828,
-					disc.inst.B.prob = 0.445,
-					disc.inst.W.prob = 0.691,
+					disc.outset.main.B.prob = (0.685 + 0.889)/2,
+					disc.outset.main.W.prob = (0.685 + 0.889)/2,
+					disc.outset.pers.B.prob = (0.527 + 0.828)/2,
+					disc.outset.pers.W.prob = (0.527 + 0.828)/2,
+					disc.inst.B.prob = (0.445 + 0.691)/2,
+					disc.inst.W.prob = (0.445 + 0.691)/2,
 					
 					circ.B.prob = (0.874 + 0.918)/2,
 					circ.W.prob = (0.874 + 0.918)/2,
