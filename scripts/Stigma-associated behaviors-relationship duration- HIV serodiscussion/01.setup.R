@@ -13,16 +13,19 @@ num.B <- 5000
 num.W <- 5000
 
 # mean/pers degree distributions matrices.
-deg.mp.B <- matrix(c(0.506, 0.151, 0.053, 0.207, 0.061, 0.022),byrow=2, nrow=2)
-deg.mp.W <- matrix(c(0.435, 0.184, 0.095, 0.233, 0.033, 0.020), byrow=2, nrow=2)
+deg.mp.B <- deg.mp.W <-
+  (matrix(c(0.506, 0.151, 0.053, 0.207, 0.061, 0.022),byrow=2, nrow=2) +
+  matrix(c(0.435, 0.184, 0.095, 0.233, 0.033, 0.020), byrow=2, nrow=2))/2
 
 # Revised rates
-mdeg.inst.B <- matrix(c(0.010402, 0.012954, 0.011485, 0.007912, 0.007424, 0.007424), byrow = TRUE, nrow = 2)
-mdeg.inst.W <- matrix(c(0.008186, 0.012017, 0.013024, 0.008151, 0.008341, 0.008341), byrow = TRUE, nrow = 2)
+mdeg.inst.B <- mdeg.inst.W <-
+	(matrix(c(0.010402, 0.012954, 0.011485, 0.007912, 0.007424, 0.007424), byrow = TRUE, nrow = 2) +
+	matrix(c(0.008186, 0.012017, 0.013024, 0.008151, 0.008341, 0.008341), byrow = TRUE, nrow = 2))/2
 
 # Quintile distribution of overall AI rates
-qnts.B <- c(0, 0.001457, 0.005536, 0.010516, 0.030226)
-qnts.W <-	c(0, 0.000450, 0.005102, 0.009680, 0.032970)
+qnts.B <- qnts.W <-
+	(c(0, 0.001457, 0.005536, 0.010516, 0.030226) +
+	 c(0, 0.000450, 0.005102, 0.009680, 0.032970))/2
 
 # Proportion in same-race partnerships (main, casl, inst)
 prop.hom.mpi.B <- prop.hom.mpi.W <-
@@ -57,8 +60,9 @@ asmr.W <- c(rep(0, 17),
 asmr.B <- asmr.W <- (asmr.B + asmr.W)/2
 
 # I, R, V role frequencies
-role.B.prob <- c(0.242, 0.321, 0.437)
-role.W.prob <- c(0.228, 0.228, 0.544)
+role.B.prob <- role.W.prob <-
+	(c(0.242, 0.321, 0.437) +
+ 	c(0.228, 0.228, 0.544))/2
 
 
 # Create meanstats
@@ -78,13 +82,13 @@ st <- calc_nwstats.mard(
   sqrt.adiff.BB = sqrt.adiff.BB,
   sqrt.adiff.WW = sqrt.adiff.WW,
   sqrt.adiff.BW = sqrt.adiff.BW,
-  age.method = "heterogeneous",
-  #dur.method = "heterogeneous",                                   ## Race diff
-  #diss.main = ~offset(edges) + offset(nodemix("race", base = 1)), ## Race diff
-  #diss.pers = ~offset(edges) + offset(nodemix("race", base = 1)), ## Race diff
-  dur.method = "homogeneous",                                      ## Race eq
-  diss.main = ~offset(edges),                                      ## Race eq
-  diss.pers = ~offset(edges),                                      ## Race eq
+  age.method = "homogeneous",
+  dur.method = "heterogeneous",                                   ## Race diff
+  diss.main = ~offset(edges) + offset(nodemix("race", base = 1)), ## Race diff
+  diss.pers = ~offset(edges) + offset(nodemix("race", base = 1)), ## Race diff
+  #dur.method = "homogeneous",                                      ## Race eq
+  #diss.main = ~offset(edges),                                      ## Race eq
+  #diss.pers = ~offset(edges),                                      ## Race eq
   durs.main = durs.main,
   durs.pers = durs.pers,
   ages = ages,
