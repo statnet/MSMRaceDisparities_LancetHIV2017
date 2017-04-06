@@ -79,12 +79,12 @@ st <- calc_nwstats.mard(
   sqrt.adiff.WW = sqrt.adiff.WW,
   sqrt.adiff.BW = sqrt.adiff.BW,
   age.method = "heterogeneous",
-  dur.method = "heterogeneous",                                   ## Race diff
-  diss.main = ~offset(edges) + offset(nodemix("race", base = 1)), ## Race diff
-  diss.pers = ~offset(edges) + offset(nodemix("race", base = 1)), ## Race diff
-  #dur.method = "homogeneous",                                      ## Race eq
-  #diss.main = ~offset(edges),                                      ## Race eq
-  #diss.pers = ~offset(edges),                                      ## Race eq
+  #dur.method = "heterogeneous",                                   ## Race diff
+  #diss.main = ~offset(edges) + offset(nodemix("race", base = 1)), ## Race diff
+  #diss.pers = ~offset(edges) + offset(nodemix("race", base = 1)), ## Race diff
+  dur.method = "homogeneous",                                      ## Race eq
+  diss.main = ~offset(edges),                                      ## Race eq
+  diss.pers = ~offset(edges),                                      ## Race eq
   durs.main = durs.main,
   durs.pers = durs.pers,
   ages = ages,
