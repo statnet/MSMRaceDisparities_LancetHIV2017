@@ -7,15 +7,17 @@ library("Mardham")
 
 ## Parameters
 
-fsimno <- 1014.1
+fsimno <- 1018.1
 load("nwstats.rda")
 
 nodemix.m <- c(st$stats.m[1] - st$stats.m[2] - st$stats.m[3],
                st$stats.m[2], st$stats.m[3])
 nodemix.p <- c(st$stats.p[1] - st$stats.p[2] - st$stats.p[3],
                st$stats.p[2], st$stats.p[3])
-nodemix.i <- c(st$stats.i[1] - st$stats.i[2] - st$stats.i[3],
-               st$stats.i[2], st$stats.i[3])
+nodemix.i <- c((st$stats.i[21] - sum(st$stats.i[7:12]) + st$stats.i[1])/2,
+               st$stats.i[1] - st$stats.i[21],
+               (sum(st$stats.i[7:12]) - st$stats.i[1] + st$stats.i[21])/2
+               )
 
 param <- param.mard(nwstats = st, 
 					acute.rr = 6.0, 
@@ -39,12 +41,12 @@ param <- param.mard(nwstats = st,
 					tx.reinit.B.prob = (0.00066 + 0.00291)/2,
 					tx.reinit.W.prob = (0.00066 + 0.00291)/2,
 					
-					disc.outset.main.B.prob = (0.685 + 0.889)/2,
-					disc.outset.main.W.prob = (0.685 + 0.889)/2,
-					disc.outset.pers.B.prob = (0.527 + 0.828)/2,
-					disc.outset.pers.W.prob = (0.527 + 0.828)/2,
-					disc.inst.B.prob = (0.445 + 0.691)/2,
-					disc.inst.W.prob = (0.445 + 0.691)/2,
+					disc.outset.main.B.prob = 0.685,
+					disc.outset.main.W.prob = 0.889,
+					disc.outset.pers.B.prob = 0.527,
+					disc.outset.pers.W.prob = 0.828,
+					disc.inst.B.prob = 0.445,
+					disc.inst.W.prob = 0.691,
 					
 					circ.B.prob = (0.874 + 0.918)/2,
 					circ.W.prob = (0.874 + 0.918)/2,
@@ -52,26 +54,27 @@ param <- param.mard(nwstats = st,
 					ccr5.B.prob = (c(0, 0.034) + c(0.021, 0.176))/2,
 					ccr5.W.prob = (c(0, 0.034) + c(0.021, 0.176))/2,
 					
-					base.ai.main.BB.rate = 1.19 / 7,
-					base.ai.main.BW.rate = 1.79 / 7,
-					base.ai.main.WW.rate = 1.56 / 7,
-					base.ai.pers.BB.rate = 0.75 / 7,
-					base.ai.pers.BW.rate = 1.13 / 7,
-					base.ai.pers.WW.rate = 0.98 / 7,
+					base.ai.main.BB.rate = (sum(nodemix.m * c(1.19, 1.79, 1.56)) / sum(nodemix.m)) / 7,
+					base.ai.main.BW.rate = (sum(nodemix.m * c(1.19, 1.79, 1.56)) / sum(nodemix.m)) / 7,
+					base.ai.main.WW.rate = (sum(nodemix.m * c(1.19, 1.79, 1.56)) / sum(nodemix.m)) / 7,
+					base.ai.pers.BB.rate = (sum(nodemix.p * c(0.75, 1.13, 0.98)) / sum(nodemix.p)) / 7,
+					base.ai.pers.BW.rate = (sum(nodemix.p * c(0.75, 1.13, 0.98)) / sum(nodemix.p)) / 7,
+					base.ai.pers.WW.rate = (sum(nodemix.p * c(0.75, 1.13, 0.98)) / sum(nodemix.p)) / 7,
 					
-					cond.main.BB.prob = 0.38,
-					cond.main.BW.prob = 0.10,
-					cond.main.WW.prob = 0.15,
-					cond.pers.BB.prob = 0.39,
-					cond.pers.BW.prob = 0.11,
-					cond.pers.WW.prob = 0.16,
-					cond.inst.BB.prob = 0.49,
-					cond.inst.BW.prob = 0.15,
-					cond.inst.WW.prob = 0.22,
+					cond.main.BB.prob = sum(nodemix.m * c(0.38, 0.10, 0.15)) / sum(nodemix.m),
+					cond.main.BW.prob = sum(nodemix.m * c(0.38, 0.10, 0.15)) / sum(nodemix.m),
+					cond.main.WW.prob = sum(nodemix.m * c(0.38, 0.10, 0.15)) / sum(nodemix.m),
+					cond.pers.BB.prob = sum(nodemix.p * c(0.39, 0.11, 0.16)) / sum(nodemix.p),
+					cond.pers.BW.prob = sum(nodemix.p * c(0.39, 0.11, 0.16)) / sum(nodemix.p),
+					cond.pers.WW.prob = sum(nodemix.p * c(0.39, 0.11, 0.16)) / sum(nodemix.p),
+					cond.inst.BB.prob = sum(nodemix.i * c(0.49, 0.15, 0.22)) / sum(nodemix.i),
+					cond.inst.BW.prob = sum(nodemix.i * c(0.49, 0.15, 0.22)) / sum(nodemix.i),
+					cond.inst.WW.prob = sum(nodemix.i * c(0.49, 0.15, 0.22)) / sum(nodemix.i),
 					
-					vv.iev.BB.prob = 0.42,
-					vv.iev.BW.prob = 0.56,
-					vv.iev.WW.prob = 0.49
+					vv.iev.BB.prob = sum(nodemix.m * c(0.42, 0.56, 0.49)) / sum(nodemix.m),
+					vv.iev.BW.prob = sum(nodemix.m * c(0.42, 0.56, 0.49)) / sum(nodemix.m),
+					vv.iev.WW.prob = sum(nodemix.m * c(0.42, 0.56, 0.49)) / sum(nodemix.m)
+					
 )
 
 # needed but then not used for anything
