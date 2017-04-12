@@ -7,6 +7,7 @@ This model is written and runs in the R programming language.  To utilize the mo
 Within R:     
 `install.packages("EpiModel")`      
 `# install devtools if necessary, install.packages("devtools")`     
+`devtools::install_github("statnet/EpiModelHPC")`      
 `devtools::install_github("statnet/EpiModelHIV", ref = "MSM-race-disparities")`     
 
 ### Citation
