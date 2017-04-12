@@ -2,7 +2,7 @@
 ## Race equal scenario setup file
 
 rm(list = ls())
-suppressPackageStartupMessages(library(Mardham))
+suppressPackageStartupMessages(library(EpiModelHIV))
 
 
 # Time unit for simulation, relative to 1 day
