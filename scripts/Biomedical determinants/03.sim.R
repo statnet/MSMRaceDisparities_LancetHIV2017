@@ -3,7 +3,7 @@
 
 library(methods)
 library("EpiModelHPC")
-library("Mardham")
+library("EpiModelHIV")
 
 ## Parameters
 
